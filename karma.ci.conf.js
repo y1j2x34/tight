@@ -3,6 +3,8 @@
 const path = require('path');
 const baseConfig = require('./karma.base.conf');
 
+process.env.CHROME_BIN = require('puppeteer').executablePath();
+
 module.exports = function (config) {
 
     const coverageIstanbulReporter = {

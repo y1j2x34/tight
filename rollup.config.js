@@ -1,9 +1,8 @@
-// import commonjs from 'rollup-plugin-commonjs';
-import tsp from 'rollup-plugin-typescript2';
+const tsp = require('rollup-plugin-typescript2');
 
 const pkg = require('./package.json');
 
-function createOutputConfig(file: string, format: string, name?: string) {
+function createOutputConfig(file, format, name) {
     return {
         file,
         format,
@@ -21,7 +20,7 @@ function createPlugins() {
     ];
 }
 
-export default [
+module.exports = [
     {
         input: 'src/index.ts',
         output: [[pkg.browser, 'umd', 'tight'], [pkg.module, 'es']].map(confs =>
