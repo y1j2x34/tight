@@ -1,0 +1,17 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "inlineSourceMap": true,
+        "sourceMap": true,
+        "typeRoots": [
+            "../src/typings",
+            "../node_modules/@types"
+        ],
+        "types": [
+            "mocha"
+        ]
+    }
+}

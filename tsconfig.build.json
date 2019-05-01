@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "moduleResolution": "node",
+        "target": "es5",
+        "lib": ["es6"],
+        "strict": true,
+        "noImplicitAny": false,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "alwaysStrict": true,
+        "preserveConstEnums": true,
+        "removeComments": false,
+        "sourceMap": false,
+        "declaration": false,
+        "importHelpers": true,
+        "listFiles": false,
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": true
+      },
+      "exclude": [
+          "node_modules",
+          "dist",
+          "src/**/*.ts",
+          "test/**/*.ts"
+      ]
+}
