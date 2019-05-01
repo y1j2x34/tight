@@ -29,12 +29,13 @@ module.exports = function (config) {
             'karma-mocha',
             'karma-chai',
             'karma-puppeteer-launcher',
+            'karma-chrome-launcher',
             'karma-rollup-preprocessor',
             'karma-coverage-istanbul-reporter',
             'karma-sourcemap-loader',
             'karma-mocha-reporter'
         ],
-        browsers: ['HeadlessPuppeteer'],
+        browsers: ['ChromeHeadless'],
         singleRun: true
     });
 };

@@ -1,7 +1,7 @@
 'use strict';
 
-const process = require('process');
-process.env.CHROME_BIN = require('puppeteer').executablePath();
+// const process = require('process');
+// process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 module.exports = {
     basePath: '',
