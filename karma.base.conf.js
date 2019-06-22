@@ -42,16 +42,6 @@ module.exports = {
                 '--disable-translate',
                 '--disable-extensions'
             ]
-        },
-        HeadlessPuppeteer: {
-            base: 'Puppeteer',
-            flags: [
-                '--no-sandbox',
-                '--headless',
-                '--disable-gpu',
-                '--disable-translate',
-                '--disable-extensions'
-            ]
         }
     },
 

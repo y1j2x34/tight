@@ -23,7 +23,7 @@ function createPlugins() {
 module.exports = [
     {
         input: 'src/index.ts',
-        output: [[pkg.browser, 'umd', 'tight'], [pkg.module, 'es']].map(confs =>
+        output: [[pkg.browser, 'umd', 'txon'], [pkg.module, 'es']].map(confs =>
             createOutputConfig(confs[0], confs[1], confs[2])
         ),
         plugins: createPlugins()

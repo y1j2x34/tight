@@ -11,11 +11,14 @@
         "ordered-imports": false,
         "interface-name": false,
         "max-classes-per-file": false,
+        "no-bitwise": false,
+        "no-empty-interface": false,
         "prettier": [true, {
             "singleQuote": true,
             "parser": "typescript",
             "tabWidth": 4
         }],
-        "no-namespace": false
+        "no-namespace": false,
+        "forin": false
     }
 }

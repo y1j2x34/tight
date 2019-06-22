@@ -4,7 +4,6 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "baseUrl": "./",
-        "inlineSourceMap": true,
         "sourceMap": true,
         "typeRoots": [
             "../src/typings",

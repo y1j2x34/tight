@@ -3,7 +3,7 @@
       "module": "esnext",
       "moduleResolution": "node",
       "target": "es5",
-      "lib": ["es5", "es6", "esnext", "scripthost", "es2015.promise", "es2017.sharedmemory"],
+      "lib": ["es5", "es6", "dom", "esnext", "scripthost", "es2015.promise", "es2017.sharedmemory"],
       "strict": true,
       "noImplicitAny": true,
       "noUnusedLocals": true,
@@ -15,7 +15,8 @@
       "importHelpers": true,
       "listFiles": true,
       "forceConsistentCasingInFileNames": true,
-      "esModuleInterop": true
+      "esModuleInterop": true,
+      "experimentalDecorators": true
     },
     "include": ["src"]
   }

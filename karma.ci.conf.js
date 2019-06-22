@@ -28,7 +28,6 @@ module.exports = function (config) {
         plugins: [
             'karma-mocha',
             'karma-chai',
-            'karma-puppeteer-launcher',
             'karma-chrome-launcher',
             'karma-rollup-preprocessor',
             'karma-coverage-istanbul-reporter',
