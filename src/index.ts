@@ -1,4 +1,4 @@
 import './parser';
-import { default as XJSON } from './XJSON';
+import * as TXON from './TXON';
 
-export default XJSON;
+export default TXON;
