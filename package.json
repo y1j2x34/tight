@@ -14,7 +14,7 @@
         "test:node": "mocha --opts mocha.opts test/**/*.spec.ts",
         "lint": "tslint {src,test}/**/*.ts",
         "format": "tslint {src,test}/**/*.ts --fix",
-        "build": "tsc -p ./tsconfig.build.json --module commonjs && rollup -c rollup.config.js",
+        "build": "rollup -c rollup.config.js",
         "codecov": "codecov < coverage/cobertura-coverage.xml",
         "gendoc": "typedoc ./src --target es5 --out /dist/docs --name txon.js --hideGenerator"
     },

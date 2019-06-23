@@ -40,7 +40,7 @@ module.exports = {
     watch: true,
     output: {
         format: 'iife',
-        name: 'RMI',
+        name: 'TXON',
         sourcemap: 'inline'
     },
     plugins: rollupPlugins,

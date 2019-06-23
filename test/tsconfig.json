@@ -12,5 +12,6 @@
         "types": [
             "mocha"
         ]
-    }
+    },
+    "include": ["../src", "."]
 }
