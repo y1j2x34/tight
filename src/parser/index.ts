@@ -5,3 +5,4 @@ import './ObjectParser';
 import './ReferenceParser';
 import './NaNParser';
 import './DateParser';
+import './RegExpParser';
