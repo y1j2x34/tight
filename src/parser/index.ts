@@ -4,5 +4,7 @@ import './ArrayParser';
 import './ObjectParser';
 import './ReferenceParser';
 import './NaNParser';
+import './InfinityParser';
 import './DateParser';
 import './RegExpParser';
+import './TypedArrayParser';
