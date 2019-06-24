@@ -30,7 +30,7 @@ export default class ArrayParser extends AbstractDataParser
             if (!parser) {
                 ec.recordDataInfo(item, cpath);
             } else {
-                ec.recordDataInfo(item, cpath, parser.getName());
+                parser.preEncode(item, cpath, ec);
             }
         }
     }
