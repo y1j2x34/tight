@@ -9,6 +9,7 @@ import ParserRegistry from '../core/ParserRegistry';
 import istatic from '../helper';
 import DecodeContext from '../core/DecodeContext';
 import { BUFFER } from './consts';
+import * as base64 from '../base64';
 
 @ParserRegistry.register()
 @istatic<DataParserStatic>()
@@ -22,12 +23,16 @@ export default class ArrayBufferParser extends AbstractDataParser
     }
     public encode(data: ArrayBuffer): Json {
         const array = new Uint8Array(data);
-        return Array.prototype.slice.call(array);
+        return base64.encode(
+            String.fromCharCode.apply(null, (array as any) as number[])
+        );
     }
-    public decode(value: Json, path: ObjectPath, dc: DecodeContext): any {
-        const arr = value as number[];
-        const view = new Uint8Array(new ArrayBuffer(arr.length));
-        view.set(arr, 0);
+    public decode(value: string, path: ObjectPath, dc: DecodeContext): any {
+        const b64Decoded = base64.decode(value);
+        const view = new Uint8Array(b64Decoded.length);
+        for (let i = 0, len = view.length; i < len; i++) {
+            view[i] = b64Decoded.charCodeAt(i);
+        }
         dc.recordValueRef(view.buffer, path);
         return view.buffer;
     }
