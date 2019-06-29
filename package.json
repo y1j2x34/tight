@@ -1,7 +1,7 @@
 {
     "name": "txon",
     "version": "1.0.0",
-    "description": "Serialization library for JS",
+    "description": "Serialization library for node and browser",
     "main": "dist/index.cjs.js",
     "module": "dist/index.esm.js",
     "browser": "dist/index.umd.js",
@@ -68,8 +68,10 @@
     },
     "keywords": [
         "serialization",
+        "deserialization",
         "JSON",
-        "complex"
+        "complex",
+        "circular"
     ],
     "files": [
         "dist"
@@ -77,6 +79,7 @@
     "author": "'y1j2x34' <y1j2x34@qq.com> (http://www.vgerbot.com/)",
     "license": "MIT",
     "bugs": {
+        "email": "vgerbot@gmail.com",
         "url": "https://github.com/y1j2x34/txon/issues"
     },
     "homepage": "https://github.com/y1j2x34/txon#readme",
