@@ -8,7 +8,7 @@ import Json from '../Json';
 import ParserRegistry from '../core/ParserRegistry';
 import istatic from '../helper';
 import DecodeContext from '../core/DecodeContext';
-import { BUFFER } from './consts';
+import { T_BUFFER } from './consts';
 import * as base64 from '../base64';
 
 @ParserRegistry.register()
@@ -16,7 +16,7 @@ import * as base64 from '../base64';
 export default class ArrayBufferParser extends AbstractDataParser
     implements DataParser {
     public static getName(): string {
-        return BUFFER;
+        return T_BUFFER;
     }
     public preEncode(data: any, path: ObjectPath, ec: EncodeContext): void {
         ec.recordDataInfo(data, path, this.getName());

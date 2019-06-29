@@ -8,14 +8,14 @@ import ObjectPath from '../core/ObjectPath';
 import ParserRegistry from '../core/ParserRegistry';
 import istatic from '../helper';
 import Json from '../Json';
-import { ARRAY } from './consts';
+import { T_ARRAY } from './consts';
 
 @ParserRegistry.register()
 @istatic<DataParserStatic>()
 export default class ArrayParser extends AbstractDataParser
     implements DataParser {
     public static getName(): string {
-        return ARRAY;
+        return T_ARRAY;
     }
     public preEncode(data: any[], path: ObjectPath, ec: EncodeContext): void {
         const isHandled = ec.recordDataInfo(data, path, this.getName());

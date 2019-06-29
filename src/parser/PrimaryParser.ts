@@ -5,13 +5,14 @@ import DataParser, {
 import ParserRegistry from '../core/ParserRegistry';
 import istatic from '../helper';
 import Json from '../Json';
+import { T_PRIMARY } from './consts';
 
 @ParserRegistry.register()
 @istatic<DataParserStatic>()
 export default class PrimaryParser extends AbstractDataParser
     implements DataParser {
     public static getName(): string {
-        return 'primary';
+        return T_PRIMARY;
     }
     public preEncode(): void {
         //

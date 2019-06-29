@@ -8,13 +8,14 @@ import Json from '../Json';
 import istatic from '../helper';
 import ParserRegistry from '../core/ParserRegistry';
 import DecodeContext from '../core/DecodeContext';
+import { T_REG_EXP } from './consts';
 
 @ParserRegistry.register()
 @istatic<DataParserStatic>()
 export default class RegExpParser extends AbstractDataParser
     implements DataParser {
     public static getName(): string {
-        return 'regexp';
+        return T_REG_EXP;
     }
     public preEncode(data: any, path: ObjectPath, ec: EncodeContext): void {
         ec.recordDataInfo(data, path, this.getName());

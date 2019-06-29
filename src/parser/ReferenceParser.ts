@@ -8,13 +8,14 @@ import Json from '../Json';
 import istatic from '../helper';
 import ParserRegistry from '../core/ParserRegistry';
 import DecodeContext from '../core/DecodeContext';
+import { T_REFERENCE } from './consts';
 
 @ParserRegistry.register()
 @istatic<DataParserStatic>()
 export default class ReferenceParser extends AbstractDataParser
     implements DataParser {
     public static getName(): string {
-        return 'ref';
+        return T_REFERENCE;
     }
     public preEncode(data: any, path: ObjectPath, ec: EncodeContext): void {
         //

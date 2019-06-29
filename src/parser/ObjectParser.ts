@@ -8,13 +8,13 @@ import Json from '../Json';
 import EncodeContext from '../core/EncodingContext';
 import ObjectPath from '../core/ObjectPath';
 import DecodeContext from '../core/DecodeContext';
-import { OBJECT } from './consts';
+import { T_OBJECT } from './consts';
 
 @ParserRegistry.register()
 @istatic<DataParserStatic>()
 export class ObjectParser extends AbstractDataParser implements DataParser {
     public static getName(): string {
-        return OBJECT;
+        return T_OBJECT;
     }
     constructor() {
         super();

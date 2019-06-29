@@ -1,5 +1,6 @@
 import TXON from '../src';
 import { expect } from 'chai';
+import { T_REFERENCE } from '../src/parser/consts';
 
 describe('serialize circular structure', () => {
     it('should serialize/deserialize circular structure correctly', () => {
@@ -9,7 +10,7 @@ describe('serialize circular structure', () => {
         expect(txonString).to.be.eq(
             JSON.stringify({
                 i: {
-                    member: 'ref'
+                    member: T_REFERENCE
                 },
                 d: {
                     member: ''
@@ -31,7 +32,7 @@ describe('serialize circular structure', () => {
         expect(txon).to.be.eq(
             JSON.stringify({
                 i: {
-                    'b.c.a': 'ref'
+                    'b.c.a': T_REFERENCE
                 },
                 d: {
                     b: {
@@ -59,7 +60,7 @@ describe('serialize circular structure', () => {
         expect(dcsjson).to.be.eq(
             JSON.stringify({
                 i: {
-                    'array.0.array.0': 'ref'
+                    'array.0.array.0': T_REFERENCE
                 },
                 d: {
                     object: {},

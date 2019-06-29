@@ -2,6 +2,7 @@ import DataParser, {
     AbstractDataParser,
     DataParserStatic
 } from '../core/DataParser';
+import { encode, decode } from '../base64';
 import ObjectPath from '../core/ObjectPath';
 import EncodeContext from '../core/EncodingContext';
 import Json from '../Json';
@@ -9,6 +10,7 @@ import ParserRegistry from '../core/ParserRegistry';
 import istatic from '../helper';
 import DecodeContext from '../core/DecodeContext';
 import { TypedArray } from '../types';
+import { T_TYPED_ARRAY } from './consts';
 
 type TypedArrayConstructor = new (buffer: ArrayBuffer) => TypedArray | DataView;
 
@@ -34,7 +36,7 @@ const types = flags.map((flag: string) => flagTypeMap[flag]);
 export default class TypedArrayParser extends AbstractDataParser
     implements DataParser {
     public static getName(): string {
-        return 'typedarray';
+        return T_TYPED_ARRAY;
     }
     public preEncode(data: any, path: ObjectPath, ec: EncodeContext): void {
         ec.recordDataInfo(data, path, this.getName());
@@ -42,7 +44,7 @@ export default class TypedArrayParser extends AbstractDataParser
     public encode(data: TypedArray | DataView): Json {
         const array = new Uint8Array(data.buffer);
         const flag = this.getTypeFlag(data);
-        const b64 = btoa(
+        const b64 = encode(
             String.fromCharCode.apply(null, (array as any) as number[])
         );
         return `${flag}:${b64}`;
@@ -51,7 +53,7 @@ export default class TypedArrayParser extends AbstractDataParser
         const colonIndex = value.indexOf(':');
         const flag = value.substring(0, colonIndex);
         const b64 = value.substring(colonIndex + 1);
-        const b64Decoded = atob(b64);
+        const b64Decoded = decode(b64);
         const TypedConstructor = types[flags.indexOf(flag)];
         const view = new Uint8Array(b64Decoded.length);
         for (let i = 0, len = view.length; i < len; i++) {

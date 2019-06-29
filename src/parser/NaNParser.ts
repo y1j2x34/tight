@@ -7,14 +7,14 @@ import EncodeContext from '../core/EncodingContext';
 import Json from '../Json';
 import istatic from '../helper';
 import ParserRegistry from '../core/ParserRegistry';
-import { NAN } from './consts';
+import { T_NAN } from './consts';
 
 @ParserRegistry.register()
 @istatic<DataParserStatic>()
 export default class NaNParser extends AbstractDataParser
     implements DataParser {
     public static getName(): string {
-        return NAN;
+        return T_NAN;
     }
     public preEncode(data: any, path: ObjectPath, ec: EncodeContext): void {
         ec.recordDataInfo(NaN, path, this.getName());

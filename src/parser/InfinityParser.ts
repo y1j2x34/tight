@@ -7,14 +7,14 @@ import EncodeContext from '../core/EncodingContext';
 import Json from '../Json';
 import istatic from '../helper';
 import ParserRegistry from '../core/ParserRegistry';
-import { INFINITY } from './consts';
+import { T_INFINITY } from './consts';
 
 @ParserRegistry.register()
 @istatic<DataParserStatic>()
 export default class InfinityParser extends AbstractDataParser
     implements DataParser {
     public static getName(): string {
-        return INFINITY;
+        return T_INFINITY;
     }
     public preEncode(data: any, path: ObjectPath, ec: EncodeContext): void {
         ec.recordDataInfo(Infinity, path, this.getName());

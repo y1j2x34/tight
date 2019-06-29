@@ -1,6 +1,13 @@
 import { expect } from 'chai';
 import * as base64 from '../src/base64';
 import TXON from '../src';
+import {
+    T_BUFFER,
+    T_REG_EXP,
+    T_DATE,
+    T_INFINITY,
+    T_NAN
+} from '../src/parser/consts';
 
 describe('Full TXON', () => {
     it('should correctly serialize/deserialize object with all types', () => {
@@ -44,7 +51,7 @@ describe('Full TXON', () => {
         expect(str).to.eql(
             JSON.stringify({
                 i: {
-                    '': 'NaN'
+                    '': T_NAN
                 },
                 d: 'NaN'
             })
@@ -56,7 +63,7 @@ describe('Full TXON', () => {
         expect(str).to.eql(
             JSON.stringify({
                 i: {
-                    '': 'inf'
+                    '': T_INFINITY
                 },
                 d: 'Infinity'
             })
@@ -69,7 +76,7 @@ describe('Full TXON', () => {
         expect(str).to.eql(
             JSON.stringify({
                 i: {
-                    '': 'date'
+                    '': T_DATE
                 },
                 d: date
             })
@@ -82,7 +89,7 @@ describe('Full TXON', () => {
         expect(str).to.eql(
             JSON.stringify({
                 i: {
-                    '': 'regexp'
+                    '': T_REG_EXP
                 },
                 d: ['^([0-9a-zA-Z]+?)((?:\\.\\d+$)|(?:\\.[a-z]+))', 'gim']
             })
@@ -98,7 +105,7 @@ describe('Full TXON', () => {
         expect(str).to.be.eq(
             JSON.stringify({
                 i: {
-                    '': 'buffer'
+                    '': T_BUFFER
                 },
                 d: textBase64
             })

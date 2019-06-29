@@ -1,5 +1,6 @@
 import TXON from '../src';
 import { expect } from 'chai';
+import { T_REFERENCE } from '../src/parser/consts';
 
 describe('object reference', () => {
     it('should serialize/deserialize reference correctly', () => {
@@ -11,7 +12,7 @@ describe('object reference', () => {
         expect(txon).to.be.eq(
             JSON.stringify({
                 i: {
-                    b: 'ref'
+                    b: T_REFERENCE
                 },
                 d: {
                     a: {},
@@ -32,7 +33,7 @@ describe('object reference', () => {
         expect(txon).to.be.eq(
             JSON.stringify({
                 i: {
-                    'b.c.a': 'ref'
+                    'b.c.a': T_REFERENCE
                 },
                 d: {
                     a: {},
@@ -58,7 +59,7 @@ describe('object reference', () => {
         expect(txon).to.be.eq(
             JSON.stringify({
                 i: {
-                    'b.c.0': 'ref'
+                    'b.c.0': T_REFERENCE
                 },
                 d: {
                     a: {},
