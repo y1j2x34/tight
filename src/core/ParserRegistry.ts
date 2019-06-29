@@ -24,11 +24,13 @@ export default class ParserRegistry {
         return this.parsers[name];
     }
     public findParser(value: any): DataParser | undefined {
-        const foundName = this.parserNames.find(name =>
-            this.parsers[name].accept(value)
-        );
-        if (foundName) {
-            return this.parsers[foundName];
+        const names = this.parserNames;
+        const parsers = this.parsers;
+        for (let i = 0, len = names.length; i < len; i++) {
+            const name = names[i];
+            if (parsers[name].accept(value)) {
+                return parsers[name];
+            }
         }
     }
     private register(ParserClass: DataParserConstructor) {

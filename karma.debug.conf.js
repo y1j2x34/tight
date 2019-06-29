@@ -18,11 +18,19 @@ module.exports = function (config) {
             'karma-mocha',
             'karma-chai',
             'karma-chrome-launcher',
+            'karma-ie-launcher',
             'karma-rollup-preprocessor',
             'karma-coverage-istanbul-reporter',
             'karma-sourcemap-loader',
             'karma-mocha-reporter'
         ],
-        browsers: ['Chrome']
+        customLaunchers: {
+            IE10: {
+                base: 'IE',
+                'x-ua-compatible': 'IE=EmulateIE10',
+                flags: ['-extoff']
+            }
+        },
+        browsers: ['IE10']
     });
 };

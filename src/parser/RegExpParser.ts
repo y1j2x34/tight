@@ -20,7 +20,7 @@ export default class RegExpParser extends AbstractDataParser
         ec.recordDataInfo(data, path, this.getName());
     }
     public encode(data: RegExp, path: ObjectPath, ec: EncodeContext): Json {
-        return [data.source, data.flags];
+        return [data.source, (data as any).options /* IE10 */ || data.flags];
     }
     public decode(value: string[], path: ObjectPath, dc: DecodeContext): any {
         return new RegExp(value[0], value[1]);

@@ -29,7 +29,7 @@ export default class ArrayBufferParser extends AbstractDataParser
     }
     public decode(value: string, path: ObjectPath, dc: DecodeContext): any {
         const b64Decoded = base64.decode(value);
-        const view = new Uint8Array(b64Decoded.length);
+        const view = new Uint8Array(new ArrayBuffer(b64Decoded.length));
         for (let i = 0, len = view.length; i < len; i++) {
             view[i] = b64Decoded.charCodeAt(i);
         }

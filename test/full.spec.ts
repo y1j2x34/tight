@@ -107,11 +107,11 @@ describe('Full TXON', () => {
     });
     function generageRangomBuffer(length: number): ArrayBuffer {
         const view = new Uint8Array(length);
-        view.set(
-            Array(length)
-                .fill(0)
-                .map(x => Math.floor(0xff * Math.random()))
-        );
+        const arr = Array(length);
+        for (let i = 0; i < length; i++) {
+            arr[i] = Math.floor(0xff * Math.random());
+        }
+        view.set(arr);
         return view.buffer;
     }
     function generageBuffer(text: string): ArrayBuffer {
