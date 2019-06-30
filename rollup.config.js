@@ -8,7 +8,7 @@ function createOutputConfig(file, format, name='TXON') {
         format,
         sourcemap: true,
         name,
-        exports: 'named'
+        exports: 'default'
     };
 }
 
