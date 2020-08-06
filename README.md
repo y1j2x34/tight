@@ -4,9 +4,9 @@ TXON, not a new serialization format, is also JSON, but the content is somewhat 
 
 ## Why
 
-- Support references, saves more space.
-- Support circular structure, no more such error message: `Uncaught TypeError: Converting circular structure to JSON`.
-- Can serialize/deserialize anything, just need a parser.
+- Supports references, saves more space.
+- Supports circular structure, no more such error message: `Uncaught TypeError: Converting circular structure to JSON`.
+- Supports custom parsers to serialize/deserialize anything.
 
 Currently supported by default:
 
