@@ -1,6 +1,6 @@
 {
     "name": "txon",
-    "version": "1.0.0-rc.6",
+    "version": "1.0.0-rc.7",
     "description": "Serialization library for node and browser",
     "main": "index.cjs.js",
     "module": "index.esm.js",
@@ -17,8 +17,8 @@
         "build": "rollup -c rollup.config.js",
         "codecov": "codecov < coverage/cobertura-coverage.xml",
         "gendoc": "typedoc ./src --target es5 --out /dist/docs --name txon.js --hideGenerator",
-        "pack": "npm run build && cd ./dist && npm pack",
-        "publish": "npm run build && cd ./dist && npm publish"
+        "pack": "npm run build && npm pack ./dist",
+        "publish": "npm run build && npm publish ./dist"
     },
     "devDependencies": {
         "@types/chai": "^4.1.7",
@@ -86,6 +86,7 @@
     },
     "homepage": "https://github.com/y1j2x34/txon#readme",
     "dependencies": {
+        "js-base64": "^3.5.2",
         "tslib": "^1.10.0"
     }
 }
