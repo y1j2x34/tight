@@ -1,10 +1,10 @@
 {
     "name": "txon",
-    "version": "1.0.0-rc.5",
+    "version": "1.0.0-rc.6",
     "description": "Serialization library for node and browser",
-    "main": "dist/index.cjs.js",
-    "module": "dist/index.esm.js",
-    "browser": "dist/index.umd.js",
+    "main": "index.cjs.js",
+    "module": "index.esm.js",
+    "browser": "index.umd.js",
     "engines": {
         "node": ">=8.0"
     },
@@ -16,7 +16,9 @@
         "format": "tslint {src,test}/**/*.ts --fix",
         "build": "rollup -c rollup.config.js",
         "codecov": "codecov < coverage/cobertura-coverage.xml",
-        "gendoc": "typedoc ./src --target es5 --out /dist/docs --name txon.js --hideGenerator"
+        "gendoc": "typedoc ./src --target es5 --out /dist/docs --name txon.js --hideGenerator",
+        "pack": "npm run build && cd ./dist && npm pack",
+        "publish": "npm run build && cd ./dist && npm publish"
     },
     "devDependencies": {
         "@types/chai": "^4.1.7",
@@ -42,6 +44,7 @@
         "prettier": "^1.17.0",
         "rollup": "^1.10.1",
         "rollup-plugin-commonjs": "^9.3.4",
+        "rollup-plugin-copy": "^3.3.0",
         "rollup-plugin-istanbul": "^2.0.1",
         "rollup-plugin-node-resolve": "^4.2.3",
         "rollup-plugin-typescript2": "^0.21.0",
@@ -71,7 +74,9 @@
         "circular"
     ],
     "files": [
-        "dist"
+        "**/*",
+        "!*.tgz",
+        "LICENSE"
     ],
     "author": "'y1j2x34' <vgerbot@gmail.com> (http://www.vgerbot.com/)",
     "license": "MIT",

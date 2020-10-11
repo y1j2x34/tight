@@ -1,10 +1,11 @@
 const tsp = require('rollup-plugin-typescript2');
+const copy = require('rollup-plugin-copy');
 
 const pkg = require('./package.json');
 
 function createOutputConfig(file, format, name='TXON') {
     return {
-        file,
+        file: 'dist/' + file,
         format,
         sourcemap: true,
         name,
@@ -15,7 +16,15 @@ function createOutputConfig(file, format, name='TXON') {
 function createPlugins() {
     return [
         tsp({
-            tsconfig: 'tsconfig.json'
+            tsconfig: 'tsconfig.json',
+            objectHashIgnoreUnknownHack: true
+        }),
+        copy({
+            targets: [
+                { src: 'package.json', dest: 'dist/'},
+                { src: 'README.md', dest: 'dist/'},
+                { src: 'LICENSE', dest: 'dist/'}
+            ]
         })
     ];
 }
