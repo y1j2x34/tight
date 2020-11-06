@@ -23,9 +23,11 @@ export default class ArrayBufferParser extends AbstractDataParser
     }
     public encode(data: ArrayBuffer): Json {
         const array = new Uint8Array(data);
-        return base64.encode(
-            String.fromCharCode.apply(null, (array as any) as number[])
-        );
+        let str = '';
+        array.forEach(it => {
+            str += String.fromCharCode(it);
+        });
+        return base64.encode(str);
     }
     public decode(value: string, path: ObjectPath, dc: DecodeContext): any {
         const b64Decoded = base64.decode(value);

@@ -112,6 +112,10 @@ describe('Full TXON', () => {
         );
         expect(TXON.parse(str)).to.be.eql(buffer);
     });
+    it('should parse large buffer correct', () => {
+        const buffer = generageRangomBuffer(1048576);
+        TXON.stringify(buffer);
+    });
     function generageRangomBuffer(length: number): ArrayBuffer {
         const view = new Uint8Array(length);
         const arr = Array(length);

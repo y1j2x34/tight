@@ -44,9 +44,11 @@ export default class TypedArrayParser extends AbstractDataParser
     public encode(data: TypedArray | DataView): Json {
         const array = new Uint8Array(data.buffer);
         const flag = this.getTypeFlag(data);
-        const b64 = encode(
-            String.fromCharCode.apply(null, (array as any) as number[])
-        );
+        let str: string = '';
+        array.forEach(it => {
+            str += String.fromCharCode(it);
+        });
+        const b64 = encode(str);
         return `${flag}:${b64}`;
     }
     public decode(value: string, path: ObjectPath, dc: DecodeContext): any {

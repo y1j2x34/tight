@@ -31,6 +31,6 @@ module.exports = function (config) {
                 flags: ['-extoff']
             }
         },
-        browsers: ['IE10']
+        browsers: ['Chrome']
     });
 };
