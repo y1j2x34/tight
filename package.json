@@ -1,6 +1,6 @@
 {
     "name": "txon",
-    "version": "1.0.0-rc.8",
+    "version": "1.0.1",
     "description": "Serialization library for node and browser",
     "main": "index.cjs.js",
     "module": "index.esm.js",
