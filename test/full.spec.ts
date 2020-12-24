@@ -116,6 +116,16 @@ describe('Full TXON', () => {
         const buffer = generageRangomBuffer(1048576);
         TXON.stringify(buffer);
     });
+    it('should handle JSON containing special characters correctly', () => {
+        const json = {
+            a: {
+                'a.b': Infinity,
+                'c\\.a': NaN
+            }
+        };
+        const txon = TXON.stringify(json);
+        expect(TXON.parse(txon)).to.be.eql(json);
+    });
     function generageRangomBuffer(length: number): ArrayBuffer {
         const view = new Uint8Array(length);
         const arr = Array(length);
